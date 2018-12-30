@@ -24,10 +24,6 @@ exports.create = (req, res) => {
     });
 };
 
-exports.update = (req, res) => {
-
-};
-
 exports.findAll = (req, res) => {
     CatFood.find()
     .then(catFoods => {
@@ -44,9 +40,9 @@ exports.findOne = (req, res) => {
     var lt = new Date();
     lt.setDate(gte.getDate() + 1);
 
-    CatFood.find({created_at: {
-       $gte: gte.toISOString(),
-       $lt: lt.toISOString()
+    CatFood.find({createdAt: {
+       $gte: gte,
+       $lt: lt
    }}).then(catFoods =>{
        res.send(catFoods);
    })
@@ -56,3 +52,19 @@ exports.findOne = (req, res) => {
        })
    });
 };
+
+exports.deleteById = (req, res) => {
+    CatFood.findByIdAndRemove(req.params.catFoodId)
+    .then(catFood => {
+        if(!catFood){
+            return res.status(404).send({
+                message: "Unable to find entry with id " + req.params.catFoodId
+            })
+        }
+        res.send({message: "Entry deleted successfully."})
+    }).catch(err => {
+        return res.status(500).send({
+            message: "Could not delete entry with id " + req.params.catFoodId
+        })
+    })
+}
