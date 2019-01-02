@@ -9,7 +9,7 @@ module.exports = (app) =>{
 
     app.get(baseRoute, controller.findAll);
 
-    app.put(baseRoute + '/:date', controller.update);
+    app.put(baseRoute + '/:catFoodId', controller.update);
 
     app.delete(baseRoute + '/:catFoodId', controller.deleteById);
 }
