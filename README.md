@@ -1,5 +1,7 @@
 # node-cat-food
 
+Test project for multiple purposes.
+
 ## Useful docker commands
 
 The following docker commands might be useful for this repository.
