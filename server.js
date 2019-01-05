@@ -1,13 +1,20 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
+var env = process.env.NODE_ENV || 'dev';
+
 const app = express();
 
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.use(bodyParser.json());
-
-const dbConfig = require('./config/database.config.js');
+var dbConfig;
+if(env == 'dev'){
+     dbConfig = require('./config/database.config.dev.js');
+}
+else{
+     dbConfig = require('./config/database.config.js');
+}
 const mongoose = require('mongoose');
 
 mongoose.Promise = global.Promise;
@@ -26,6 +33,7 @@ app.get('/', (req, res) =>{
 });
 
 require('./app/routes/catfood.routes.js')(app);
+require('./app/routes/users.route.js')(app);
 
 app.listen(3000, () => {
     console.log("Server is listening to port 3000.");
