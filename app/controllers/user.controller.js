@@ -2,10 +2,10 @@ const User = require('../models/user.model.js');
 const bcrypt = require('bcryptjs');
 
 exports.createUser = (req, res) => {
-    const{email, password} = req.body;
+    const { email, password } = req.body;
 
     const user = new User({
-        email : email,
+        email: email,
         password: password
     });
 
