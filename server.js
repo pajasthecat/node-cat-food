@@ -33,7 +33,7 @@ app.get('/', (req, res) =>{
 });
 
 require('./app/routes/catfood.routes.js')(app);
-require('./app/routes/users.route.js')(app);
+require('./app/routes/user.route.js')(app);
 
 app.listen(3000, () => {
     console.log("Server is listening to port 3000.");
