@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const config = require('./config/config.js');
 const mongoose = require('mongoose');
 const env = process.env.NODE_ENV || 'dev';
-const jwtService = require('./app/jwt.service.js');
+const jwtService = require('./app/infrastructure/jwt.service.js');
 
 const app = express();
 

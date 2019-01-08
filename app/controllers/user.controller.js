@@ -1,7 +1,7 @@
 const User = require('../models/user.model.js');
 const bcrypt = require('bcryptjs');
-const auth = require('../auth.js');
-const jtwService = require('../jwt.service.js');
+const auth = require('../infrastructure/auth.js');
+const jtwService = require('../infrastructure/jwt.service.js');
 const jwt = require('jsonwebtoken');
 const config = require('../../config/config.js');
 
