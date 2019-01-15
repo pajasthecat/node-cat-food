@@ -79,6 +79,6 @@ typings/
 # DynamoDB Local files
 .dynamodb/
 
-# Public and private RSA key
-private.key
-public.key
+# # Public and private RSA key
+# private.key
+# public.key
