@@ -17,7 +17,7 @@ if (env == 'dev') {
 else {
     dbConfig = require('./config/database.config.js');
 }
-
+console.log(env);
 mongoose.Promise = global.Promise;
 mongoose.connect(dbConfig.url, {
     useNewUrlParser: true
