@@ -10,13 +10,9 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(bodyParser.json());
-var dbConfig;
-if (env == 'dev') {
-    dbConfig = require('./config/database.config.dev.js');
-}
-else {
-    dbConfig = require('./config/database.config.js');
-}
+
+const dbConfig = require('./config/database.config.js');
+
 console.log(env);
 mongoose.Promise = global.Promise;
 mongoose.connect(dbConfig.url, {
