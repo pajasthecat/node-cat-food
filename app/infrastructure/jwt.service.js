@@ -1,8 +1,11 @@
 const fs = require('fs');
 const jwt = require('jsonwebtoken');
+var path = require('path');
 
-var privateKEY = fs.readFileSync(__dirname + '/config/private.key', 'utf8');
-var publicKEY = fs.readFileSync(__dirname + '/config/public.key', 'utf8');
+var keyPath = path.join(__dirname, '..', '..', 'config');
+
+var privateKEY = fs.readFileSync(path.join(keyPath, 'private.key'), 'utf8');
+var publicKEY = fs.readFileSync(path.join(keyPath, 'public.key'), 'utf8');
 
 exports.sign = (payload) => {
     var signOptions = {
